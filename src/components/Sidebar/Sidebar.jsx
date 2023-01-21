@@ -160,7 +160,6 @@ const StyledFullDetailViewCardMedia = styled(CardMedia)(({ theme }) => ({
     },
 }));
 const StyledFullDetailViewCardContent = styled(CardContent)(({ theme }) => ({
-    padding: "20px 45px",
     margin: "10px 0px",
 }));
 const StyledBoxForProgress = styled(Box)(({ theme }) => ({
@@ -240,8 +239,11 @@ const Sidebar = () => {
         boxShadow: 'none',
         backgroundColor: '#394B61',
         height: 350,
+        [theme.breakpoints.only("sm")]: {
+            width: 300
+        },
         [theme.breakpoints.down("md")]: {
-            minHeight: singleMoviesData.length && singleMoviesData[0].Plot.length < 150 ? 300 : 500
+            minHeight: singleMoviesData.length && singleMoviesData[0].Plot.length < 150 ? 300 : 400
         },
         [theme.breakpoints.up("md")]: {
             minHeight: 350
@@ -477,7 +479,7 @@ const Sidebar = () => {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <div style={{
-                    margin: "3rem 1.5rem",
+                    margin: "3rem 0rem",
                 }}>
                     {
                         allMoviesData.length === 0 && (
